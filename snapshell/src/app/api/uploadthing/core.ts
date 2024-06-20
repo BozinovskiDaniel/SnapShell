@@ -33,9 +33,19 @@ export const ourFileRouter = {
         });
 
         return { configId: config.id };
-      }
+      } else {
+        // Update the existing config
+        const updatedConfig = await db.configuration.update({
+          where: {
+            id: configId,
+          },
+          data: {
+            croppedImgUrl: file.url // Set the cropped image url
+          }
+        });
 
-      return { configId };
+        return { configId: updatedConfig.id };
+      }
     }),
 } satisfies FileRouter;
  
