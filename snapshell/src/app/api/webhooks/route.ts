@@ -31,6 +31,10 @@ export const POST = async (req: Request) => {
         orderId: null,
       };
 
+      console.log("Session: ");
+      console.log(session);
+      console.log(JSON.stringify(session));
+
       // If no user meta data, throw error
       if (!userId || !orderId) throw new Error("Invalid request metadata.");
 
