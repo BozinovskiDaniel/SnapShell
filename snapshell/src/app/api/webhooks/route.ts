@@ -39,7 +39,6 @@ export const POST = async (req: Request) => {
       if (!userId || !orderId) throw new Error("Invalid request metadata.");
 
       const billingAddress = session.customer_details!.address;
-      const shippingAddress = session.shipping_details!.address;
 
       await db.order.update({
         where: {
@@ -50,11 +49,11 @@ export const POST = async (req: Request) => {
           shippingAddress: {
             create: {
               name: session.customer_details!.name!,
-              city: shippingAddress!.city!,
-              country: shippingAddress!.country!,
-              postalCode: shippingAddress!.postal_code!,
-              street: shippingAddress!.line1!,
-              state: shippingAddress!.state,
+              city: billingAddress!.city!,
+              country: billingAddress!.country!,
+              postalCode: billingAddress!.postal_code!,
+              street: billingAddress!.line1!,
+              state: billingAddress!.state,
             }
           },
           billingAddress: {
