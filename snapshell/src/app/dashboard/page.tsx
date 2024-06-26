@@ -20,6 +20,8 @@ import { formatPrice } from '@/lib/utils';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { notFound } from 'next/navigation';
 import StatusDropdown from './StatusDropdown';
+import { Button, buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();
@@ -44,6 +46,7 @@ const Page = async () => {
     include: {
       user: true,
       shippingAddress: true,
+      configuration: true,
     },
   });
 
@@ -141,6 +144,33 @@ const Page = async () => {
                     {order.createdAt.toLocaleDateString()}
                   </TableCell>
                   <TableCell className="text-right">{formatPrice(order.amount)}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+
+          <h1 className="text-4xl font-bold tracking-tight">Uploaded images</h1>
+
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Image URLs</TableHead>
+              </TableRow>
+            </TableHeader>
+
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order.id} className="bg-accent">
+                  <TableCell>
+                    <div className="font-medium">
+                      <Link href={order.configuration.imgUrl} target="_blank">
+                        {order.configuration.imgUrl}
+                      </Link>
+                    </div>
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="destructive">Delete</Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
