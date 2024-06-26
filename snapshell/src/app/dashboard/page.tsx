@@ -8,9 +8,18 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import { formatPrice } from '@/lib/utils';
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
 import { notFound } from 'next/navigation';
+import StatusDropdown from './StatusDropdown';
 
 const Page = async () => {
   const { getUser } = getKindeServerSession();
@@ -63,6 +72,7 @@ const Page = async () => {
   });
 
   const WEEKLY_GOAL = 500;
+  const MONTHLY_GOAL = 2500;
 
   return (
     <div className="flex min-h-screen w-full bg-muted/40">
@@ -89,19 +99,52 @@ const Page = async () => {
               <CardHeader className="pb-2">
                 <CardDescription>Last Month</CardDescription>
                 <CardTitle className="text-4xl">
-                  {formatPrice(lastWeekSum._sum.amount ?? 0)}
+                  {formatPrice(lastMonthSum._sum.amount ?? 0)}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-sm text-muted-foreground">
-                  of {formatPrice(WEEKLY_GOAL)} goal
+                  of {formatPrice(MONTHLY_GOAL)} goal
                 </div>
               </CardContent>
               <CardFooter>
-                <Progress value={((lastWeekSum._sum.amount ?? 0) * 100) / WEEKLY_GOAL} />
+                <Progress value={((lastMonthSum._sum.amount ?? 0) * 100) / MONTHLY_GOAL} />
               </CardFooter>
             </Card>
           </div>
+
+          <h1 className="text-4xl font-bold tracking-tight">Incoming orders</h1>
+
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Customer</TableHead>
+                <TableHead className="hidden sm:table-cell">Status</TableHead>
+                <TableHead className="hidden sm:table-cell">Purchase Date</TableHead>
+                <TableHead className="text-right">Amount</TableHead>
+              </TableRow>
+            </TableHeader>
+
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order.id} className="bg-accent">
+                  <TableCell>
+                    <div className="font-medium">{order.shippingAddress?.name}</div>
+                    <div className="hidden text-sm text-muted-foreground md:inline">
+                      {order.user?.email}
+                    </div>
+                  </TableCell>
+                  <TableCell className="hidden sm:table-cell">
+                    <StatusDropdown id={order.id} orderStatus={order.status} />
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    {order.createdAt.toLocaleDateString()}
+                  </TableCell>
+                  <TableCell className="text-right">{formatPrice(order.amount)}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </div>
