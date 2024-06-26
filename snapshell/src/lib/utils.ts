@@ -36,5 +36,7 @@ export function constructMetadata({ title = "SnapShell - custom high-quality pho
       description,
       images: [{ url: image }]
     },
+    icons,
+    metadataBase: new URL("https://snap-shell.vercel.app/")
   }
 }
