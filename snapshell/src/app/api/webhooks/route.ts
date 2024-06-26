@@ -6,6 +6,10 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+import { Resend } from "resend";
+import OrderReceivedEmail from "@/components/emails/OrderReceivedEmail";
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export const POST = async (req: Request) => {
   try {
     const body = await req.text();
@@ -31,16 +35,12 @@ export const POST = async (req: Request) => {
         orderId: null,
       };
 
-      console.log("Session: ");
-      console.log(session);
-      console.log(JSON.stringify(session));
-
       // If no user meta data, throw error
       if (!userId || !orderId) throw new Error("Invalid request metadata.");
 
       const billingAddress = session.customer_details!.address;
 
-      await db.order.update({
+      const updatedOrder = await db.order.update({
         where: {
           id: orderId,
         },
@@ -67,7 +67,26 @@ export const POST = async (req: Request) => {
             }
           },
         }
-      })
+      });
+
+      await resend.emails.send({
+        from: 'SnapShell <hello@bozinovskidaniel@hotmail.com>',
+        to: event.data.object.customer_details.email,
+        subject: 'Thanks for your order!',
+        react: OrderReceivedEmail({ 
+          orderId: orderId, 
+          orderDate: updatedOrder.createdAt.toLocaleDateString(), 
+          // @ts-ignore
+          shippingAddress: {
+            name: session.customer_details!.name!,
+            city: billingAddress!.city!,
+            country: billingAddress!.country!,
+            postalCode: billingAddress!.postal_code!,
+            street: billingAddress!.line1!,
+            state: billingAddress!.state,
+          }
+        })
+      });
     }
 
     return NextResponse.json({ result: event, ok: true });
