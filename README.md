@@ -22,6 +22,13 @@ Visit us at: [https://snap-shell.vercel.app/](https://snap-shell.vercel.app/)
 - ⌨️ 100% written in TypeScript
 - 🎁 ...much more
 
+## Functionality
+
+- Login/Logout/Signup capability via `Kinde`
+- Payment via `Stripe`
+- Hosting of images via `UploadThing`
+- Relational database created via `Prisma`
+
 ## Technologies
 
 SnapShell is built using the following technologies:
