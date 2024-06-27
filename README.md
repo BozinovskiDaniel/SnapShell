@@ -1,6 +1,6 @@
 # SnapShell ✨
 
-![SnapShell Logo](./snapshell/public/thumbnail.png)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CFsi60u-4i4?si=I3X3rFCw7p--nRD7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **SnapShell** is a cutting-edge e-commerce platform for custom phone cases, offering a seamless and intuitive experience to design and purchase the perfect case using React, Next.js, and TypeScript.
 
