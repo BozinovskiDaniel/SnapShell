@@ -42,3 +42,5 @@ SnapShell is built using the following technologies:
 ## How to Run Locally
 
 To run locally, follow [this guide here.](https://github.com/BozinovskiDaniel/SnapShell/blob/master/snapshell/README.md)
+
+You can test payment using Stripe's test card: https://docs.stripe.com/testing#cards
