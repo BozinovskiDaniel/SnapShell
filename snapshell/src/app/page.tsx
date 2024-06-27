@@ -25,23 +25,28 @@ export default function Home() {
                 Case
               </h1>
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap">
-                Capture your favorite memories with your own,{' '}
-                <span className="font-semibold">one-of-one</span> phone case. CaseCobra allows you
-                to protect your memories, not just your phone case.
+                Preserve your cherished memories with a unique,{' '}
+                <span className="font-semibold">one-of-a-kind</span> phone case. SnapShell not only
+                protects your phone but also safeguards your precious moments
               </p>
 
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
                 <div className="space-y-2">
                   <li className="flex gap-1.5 items-center text-left">
                     <Check className="h-5 w-5 shrink-0 text-orange-600" />
-                    High-quality, durable material
-                  </li>
-                  <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-orange-600" />5 year print guarantee
+                    Crafted from premium, long-lasting materials
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
                     <Check className="h-5 w-5 shrink-0 text-orange-600" />
-                    Modern iPhone models supported
+                    Five-year guarantee on print quality
+                  </li>
+                  <li className="flex gap-1.5 items-center text-left">
+                    <Check className="h-5 w-5 shrink-0 text-orange-600" />
+                    Compatible with the latest iPhone models
+                  </li>
+                  <li className="flex gap-1.5 items-center text-left">
+                    <Check className="h-5 w-5 shrink-0 text-orange-600" />
+                    Sleek design tailored for a perfect fit
                   </li>
                 </div>
               </ul>
@@ -85,7 +90,7 @@ export default function Home() {
                   </div>
 
                   <p>
-                    <span className="font-semibold">1.250</span> happy customers
+                    Over <span className="font-semibold">1,500</span> happy customers
                   </p>
                 </div>
               </div>
@@ -116,7 +121,11 @@ export default function Home() {
               </span>{' '}
               say
             </h2>
-            <img src="/snake-2.png" className="w-24 order-0 lg:order-2" />
+            <img
+              src="/snake-2.png"
+              className="w-24 order-0 lg:order-2"
+              alt="image of turtle logo"
+            />
           </div>
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 gap-y-16">
@@ -131,11 +140,13 @@ export default function Home() {
 
               <div className="text-lg leading-8">
                 <p>
-                  "The case feels durable and I even got a compliment on the design. Had the case
-                  for two and a half months now and{' '}
-                  <span className="p-0.5 bg-slate-800 text-white">the image is super clear</span>,
-                  on the case I had before, the image started fading into yellow-ish color after a
-                  couple weeks. Love it."
+                  The case is really sturdy, and I've already received compliments on its design.
+                  I've been using it for over two months, and the image{' '}
+                  <span className="p-0.5 bg-slate-800 text-white">
+                    remains crystal clear—unlike my previous case
+                  </span>
+                  , which began to turn a yellowish color after just a few weeks. Absolutely love
+                  it!
                 </p>
               </div>
 
@@ -220,12 +231,13 @@ export default function Home() {
 
               <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/100 lg:rounded-2xl">
                 <img
-                  src="/horse.jpg"
+                  src="/sample.jpg"
+                  alt="sample image on phone case"
                   className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
                 />
               </div>
 
-              <Phone className="w-60" imgSrc="/horse_phone.jpg" />
+              <Phone className="w-60" imgSrc="/sample.jpg" />
             </div>
           </div>
 

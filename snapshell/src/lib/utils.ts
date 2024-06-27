@@ -16,7 +16,7 @@ export const formatPrice = (price: number) => {
 }
 
 // Construct meta data for the application
-export function constructMetadata({ title = "SnapShell - custom high-quality phone cases", description = "Create custom high-quality phone cases in seconds", image = "/thumbnail.png", icons = "/favicon.ico" }: {
+export function constructMetadata({ title = "SnapShell - Custom high-quality phone cases", description = "Create custom high-quality phone cases in seconds", image = "/thumbnail.png", icons = "/favicon.ico" }: {
   title?: string;
   description?: string;
   image?: string;
