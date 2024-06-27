@@ -1,12 +1,12 @@
-# SnapShell
+# SnapShell ✨
 
 ![SnapShell Logo](./snapshell/public/thumbnail.png)
 
-**SnapShell** is a modern e-commerce platform specializing in customized phone cases, designed to provide a personalized shopping experience for smartphone enthusiasts. Built with cutting-edge technology including React, Next.js, and TypeScript, SnapShell offers a seamless and intuitive interface for users to create and purchase their perfect phone case.
+**SnapShell** is a cutting-edge e-commerce platform for custom phone cases, offering a seamless and intuitive experience to design and purchase the perfect case using React, Next.js, and TypeScript.
 
-Visit us at: [SnapShell](https://snap-shell.vercel.app/)
+Visit us at: [https://snap-shell.vercel.app/](https://snap-shell.vercel.app/)
 
-## Features
+## App Features
 
 - 🛠️ Complete shop built from scratch in Next.js 14
 - 💻 Beautiful landing page included
@@ -30,4 +30,6 @@ SnapShell is built using the following technologies:
 - **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
 - **Vercel**: Deployment and scaling with Vercel platform.
 
-## Information on How to Run Locally
+## How to Run Locally
+
+To run locally, follow [this guide here.](https://github.com/BozinovskiDaniel/SnapShell/blob/master/snapshell/README.md)
