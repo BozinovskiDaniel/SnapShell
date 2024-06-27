@@ -387,8 +387,8 @@ const DesignConfig = ({
                 disabled={isPending}
                 isLoading={isPending}
                 loadingText="Saving"
-                onClick={() =>
-                  saveConfig({
+                onClick={async () =>
+                  await saveConfig({
                     configId,
                     color: options.color.value,
                     finish: options.finish.value,

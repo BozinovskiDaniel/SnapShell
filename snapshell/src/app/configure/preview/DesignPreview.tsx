@@ -42,7 +42,7 @@ const DesignPreview = ({ config }: { config: Configuration }) => {
   if (material === 'polycarbonate') totalPrice += PRODUCT_PRICES.material.polycarbonate;
   if (finish === 'textured') totalPrice += PRODUCT_PRICES.finish.textured;
 
-  const { mutate: createPaymentSession } = useMutation({
+  const { mutate: createPaymentSession, isPending } = useMutation({
     mutationKey: ['get-checkout-session'],
     mutationFn: createCheckoutSession,
     onSuccess: (props) => {
@@ -64,10 +64,10 @@ const DesignPreview = ({ config }: { config: Configuration }) => {
     },
   });
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (user) {
       // Create payment session
-      createPaymentSession({ configId: config.id });
+      await createPaymentSession({ configId: config.id });
     } else {
       // Redirect to login
       // Before we do that, save their configuration to local storage
@@ -163,7 +163,13 @@ const DesignPreview = ({ config }: { config: Configuration }) => {
             </div>
 
             <div className="mt-8 flex justify-end pb-12">
-              <Button onClick={handleCheckout} className="px-4 sm:px-6 lg:px-8">
+              <Button
+                onClick={handleCheckout}
+                className="px-4 sm:px-6 lg:px-8"
+                disabled={isPending}
+                isLoading={isPending}
+                loadingText="Creating checkout"
+              >
                 Check out <ArrowRight className="h-4 w-4 ml-1.5 inline" />
               </Button>
             </div>
