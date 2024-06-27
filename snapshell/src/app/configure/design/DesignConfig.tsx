@@ -233,6 +233,7 @@ const DesignConfig = ({
               <div className='flex flex-col gap-6'>
                 <RadioGroup
                   value={options.color}
+                  disabled={isPending}
                   onChange={(val) => {
                     setOptions((prev) => ({
                       ...prev,
@@ -269,6 +270,7 @@ const DesignConfig = ({
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button
+                        disabled={isPending}
                         variant='outline'
                         role='combobox'
                         className='w-full justify-between'>
@@ -310,6 +312,7 @@ const DesignConfig = ({
                     <RadioGroup
                       key={name}
                       value={options[name]}
+                      disabled={isPending}
                       onChange={(val) => {
                         setOptions((prev) => ({
                           ...prev,

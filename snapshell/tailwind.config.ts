@@ -52,6 +52,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        'rose-gold': '#B76E79'
       },
       borderRadius: {
         lg: "var(--radius)",
