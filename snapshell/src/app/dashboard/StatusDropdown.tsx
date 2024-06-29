@@ -19,7 +19,7 @@ const StatusDropdown = ({ id, orderStatus }: { id: string, orderStatus: OrderSta
 
   const router = useRouter();
 
-  const {mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ['change-order-status'],
     mutationFn: changeOrderStatus,
     onSuccess: () => {
