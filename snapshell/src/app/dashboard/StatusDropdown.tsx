@@ -26,7 +26,7 @@ const StatusDropdown = ({ id, orderStatus }: { id: string, orderStatus: OrderSta
       // Update the status
       router.refresh();
     },
-  })
+  });
 
   return (
     <DropdownMenu>
