@@ -1,12 +1,11 @@
 # SnapShell ✨
 
+Visit here: [https://snap-shell.vercel.app/](https://snap-shell.vercel.app/)
 
 https://github.com/BozinovskiDaniel/SnapShell/assets/47773746/8d95913e-940c-4f9c-8825-fba716294897
 
 
 **SnapShell** is a cutting-edge e-commerce platform for custom phone cases, offering a seamless and intuitive experience to design and purchase the perfect case using React, Next.js, and TypeScript.
-
-Visit us at: [https://snap-shell.vercel.app/](https://snap-shell.vercel.app/)
 
 ## App Features
 
