@@ -1,3 +1,4 @@
+'use client';
 import type { Dispatch, SetStateAction } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
 import Image from 'next/image';
